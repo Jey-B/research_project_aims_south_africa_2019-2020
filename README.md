@@ -1,1 +1,1 @@
-# research_project_aims_south_africa_2019-2020
+# Tic-tac-toe reseach project AIMS South Africa 2019-2020
