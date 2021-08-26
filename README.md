@@ -2,7 +2,7 @@
 
 The following code was for academic purposes. The original code came from https://github.com/fcarsten/tic-tac-toe
 
-We adjusted the environment to fit our problem, we added new functions and added other players using $TD(0)$ update  rules  and symmetries  to  learn  faster  than the Standard Q-learning algorithm. We also  equipped the Q-learning algorithm with symmetry and afterstate perspectives to make it learning faster and efficiently.
+We adjusted the environment to fit our problem, we added new functions and added other players using TD(0) update  rules  and symmetries  to  learn  faster  than the Standard Q-learning algorithm. We also  equipped the Q-learning algorithm with symmetry and afterstate perspectives to make it learning faster and efficiently.
 
 Agents used in our project are in the directory tic-tac-toe. Except TabularQPlayer, MIiniMaxAgent,RandomPlayer, RndMinMaxAgnet the remaining agents were customize for the project purpose. They are mainly based by the following paradigm: 
 
