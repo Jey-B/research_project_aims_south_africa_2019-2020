@@ -16,7 +16,8 @@ LOSS_VALUE = 0.0  # type: float
 
 class TQ_ASPlayer(Player):
     """
-    A Tic Tac Toe player, implementing Tabular Q Learning
+    A Tic Tac Toe player, implementing Tabular Q Learning that transfers the same state-action value to all other state-action pairs that lead to the same next state
+    as an experienced state-action pair
     """
 
     def __init__(self, alpha=0.9, gamma=0.95, q_init=0.6, epsilon = 0.1):
@@ -148,7 +149,7 @@ class TQ_ASPlayer(Player):
             next_max = max(qvals)
             
         
-        ############# all rests are new ####################
+        ############# We are applying the Afer-State perspective here ####################
         self.after_move.reverse()
         for i in range(len(self.after_move)):
             board.state = self.after_move[i]
