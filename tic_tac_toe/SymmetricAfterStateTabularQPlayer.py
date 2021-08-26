@@ -16,7 +16,7 @@ LOSS_VALUE = 0.0  # type: float
 
 class SYM_TQ_ASPlayer(Player):
     """
-    A Tic Tac Toe player, implementing Tabular Q Learning
+    A Tic Tac Toe player, implementing Tabular Q Learning which uses the symmetric and after-state persepective to boost its convergence to an optimal policy
     """
 
     def __init__(self, alpha=0.9, gamma=0.95, q_init=0.6, epsilon = 0.1):
@@ -148,7 +148,7 @@ class SYM_TQ_ASPlayer(Player):
             next_max = max(qvals)
             
         
-        ############# all rests are new ####################
+        ############# We are applying the after-state perspective ####################
         self.after_move.reverse()
         for i in range(len(self.after_move)):
             board.state = self.after_move[i]
@@ -163,11 +163,14 @@ class SYM_TQ_ASPlayer(Player):
                     board.state[j] = self.side
                 
     def symetry(self, board: Board):
+        """Function that computes the 7 symmectric board of a given tic-tac-toe board"""
         
         def transp(x):
+            """Return the transposition of a given board"""
             return x.transpose()
     
         def rot_180(x):
+            """compute the rotation of 180° clockwise of a given board"""
             y = np.copy(x)
             y[0] = x[2]
             y[2] = x[0]
