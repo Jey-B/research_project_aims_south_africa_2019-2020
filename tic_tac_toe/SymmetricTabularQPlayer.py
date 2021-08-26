@@ -16,7 +16,7 @@ LOSS_VALUE = 0.0  # type: float
 
 class SYMTQPlayer(Player):
     """
-    A Tic Tac Toe player, implementing Tabular Q Learning
+    A Tic Tac Toe player, implementing Tabular Q Learning that transfer the value of an experienced state to its 7 symmetric states
     """
 
     def __init__(self, alpha=0.9, gamma=0.95, q_init=0.6, epsilon = 0.1):
@@ -153,17 +153,21 @@ class SYMTQPlayer(Player):
         
                 
     def symetry(self, board: Board):
+        """This function take as parameter a given state(board) and transfer its value to its all possible (7) symetries""" 
         
         def transp(x):
+            "Transposition of a given board"
             return x.transpose()
     
         def rot_180(x):
+            #rotatation of 180° clockwise of a given board
             y = np.copy(x)
             y[0] = x[2]
             y[2] = x[0]
             return y
         
         def sym(board: Board):
+            "Computation of the 7 symmetric boards
             y = board.state.reshape(3,3)
             S = []
             for i in range(3):
@@ -175,7 +179,7 @@ class SYMTQPlayer(Player):
             S.append(y.reshape(9,))
             return S
         
-        for i in range(len(self.after_move)):
+        for i in range(len(self.after_move)): #Transfer of the state value to all symmetric states
             board.state = self.after_move[i]
             z = sym(board)
             for j in range(len(z)):
