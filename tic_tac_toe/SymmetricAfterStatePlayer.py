@@ -16,7 +16,7 @@ LOSS_VALUE = 0.0  # type: float
 
 class SYM_ASPlayer(Player):
     """
-    A Tic Tac Toe player, implementing Symmetric After-State player. A TD(0) Agent that uses both symmetric and after-state perspectives to boost its learning
+    A Tic Tac Toe player, implementing Symmetric After-State player. A TD(0) Agent that uses symmetric a to boost its learning
     """
 
     def __init__(self, alpha = 0.1, epsilon = 0, decay = 0.00001):
@@ -178,17 +178,21 @@ class SYM_ASPlayer(Player):
 
     
     def symetry(self,board: Board):
+        """This function take as parameter a given state(board) and transfer its value to its all possible (7) symetries""" 
         
         def transp(x):
+            "Transposition of a given board"
             return x.transpose()
     
         def rot_180(x):
+            """rotatation of 180° clockwise of a given board"""
             y = np.copy(x)
             y[0] = x[2]
             y[2] = x[0]
             return y
         
         def sym(board: Board):
+            """Computation of the 7 symmetric boards"""
             y = board.state.reshape(3,3)
             S = []
             for i in range(3):
