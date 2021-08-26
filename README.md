@@ -12,3 +12,5 @@ Agents used in our project are in the directory tic-tac-toe. Except TabularQPlay
 
 The state-of-the art in project was to equipped to Q-learning player to use both After-State and Symmetry paradigm that made him converging faster in an outstanding way than the Standard Q-learning algorithm (See the SymmetricAfterStateTabularQPlayer  agent).
 
+The experiment used in the project lies in the notebook "essay experiment"
+
