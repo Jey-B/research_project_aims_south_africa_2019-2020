@@ -156,18 +156,18 @@ class SYMTQPlayer(Player):
         """This function take as parameter a given state(board) and transfer its value to its all possible (7) symetries""" 
         
         def transp(x):
-            "Transposition of a given board"
+            """Transposition of a given board"""
             return x.transpose()
     
         def rot_180(x):
-            #rotatation of 180° clockwise of a given board
+            """rotatation of 180° clockwise of a given board"""
             y = np.copy(x)
             y[0] = x[2]
             y[2] = x[0]
             return y
         
         def sym(board: Board):
-            "Computation of the 7 symmetric boards
+           """Computation of the 7 symmetric boards"""
             y = board.state.reshape(3,3)
             S = []
             for i in range(3):
