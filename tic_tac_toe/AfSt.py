@@ -100,7 +100,7 @@ class ASPlayer2(Player):
         self.step += len(y)
         self.q[y[0]] = final_value
         
-        for i in range(len(y)-1):
+        for i in range(len(y)-1): #We are updating the state value of experienced states and apply the After-State persepective
             #print(self.st[y[i]])
             board.state = self.st[y[i]]
             for j in range(len(board.state)):
@@ -119,8 +119,6 @@ class ASPlayer2(Player):
                             board.state[k] = g
                     board.state[j] = self.side
                                  
-
-        # You have to implement code that will update the parameters of your learner.
     
     def symetry(self, board):
         pass
@@ -132,4 +130,3 @@ class ASPlayer2(Player):
         """
         self.side = side
         self.move_history = []                                         
-        # You have to implement code that will reset all variables that need to reset.
